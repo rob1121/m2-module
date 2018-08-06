@@ -1,8 +1,26 @@
 <?php namespace Mageplaza\HelloWorld\Block;
 
+use Carbon\Carbon;
 
 class Index extends \Magento\Framework\View\Element\Template {
-  public function sayHello() {
-    return 'hellos';
-  }
+  protected $_postFactory;
+  
+	public function __construct(
+		\Magento\Framework\View\Element\Template\Context $context,
+		\Mageplaza\HelloWorld\Model\PostFactory $postFactory
+	)
+	{
+		$this->_postFactory = $postFactory;
+		parent::__construct($context);
+	}
+	
+	public function carbonParse($dateTime) 
+	{
+		return Carbon::parse($dateTime);
+	}
+
+	public function getPostCollection(){
+		$post = $this->_postFactory->create();
+		return $post->getCollection();
+	}
 } 

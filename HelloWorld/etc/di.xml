@@ -12,4 +12,21 @@
             <argument name="resourceModel" xsi:type="string">Mageplaza\HelloWorld\Model\ResourceModel\Post</argument>
         </arguments>
     </virtualType>
+    
+    <!-- OVERRIDE FROM APP/ETC/DI.XML TO 
+    CHANGES:
+    FROM:   <item name="view_preprocessed" xsi:type="object">Magento\Framework\App\View\Asset\MaterializationStrategy\SymLink</item>
+    TO:     <item name="view_preprocessed" xsi:type="object">Magento\Framework\App\View\Asset\MaterializationStrategy\Copy</item> 
+    
+    note: must clear pub/static except for .htaccess then upgrade and static deploy using console.
+    -->
+
+    <virtualType name="developerMaterialization" type="Magento\Framework\App\View\Asset\MaterializationStrategy\Factory">
+        <arguments>
+            <argument name="strategiesList" xsi:type="array">
+                <item name="view_preprocessed" xsi:type="object">Magento\Framework\App\View\Asset\MaterializationStrategy\Copy</item>
+                <item name="default" xsi:type="object">Magento\Framework\App\View\Asset\MaterializationStrategy\Copy</item>
+            </argument>
+        </arguments>
+    </virtualType>
 </config>

@@ -2,7 +2,7 @@
 
       use Magento\Framework\DB\Adapter\AdapterInterface as Db;
       use Magento\Framework\DB\Ddl\Table;
-      use MAgento\Framework\Setup\InstallSchemaInterface;
+      use Magento\Framework\Setup\InstallSchemaInterface;
       use Magento\Framework\Setup\ModuleContextInterface;
       use Magento\Framework\Setup\SchemaSetupInterface;
 
@@ -92,20 +92,21 @@ class InstallSchema implements InstallSchemaInterface
 					null,
 					['nullable' => false, 'default' => Table::TIMESTAMP_INIT_UPDATE],
 					'Updated At')
-        ->setComment('Post Table')
-
-        ->addIndex(
-          $installer->getTable('mageplaza_helloworld_post'),
+        ->setComment('Post Table');
+        
+				$setup->getConnection()->createTable($table);
+				
+				
+        $setup->getTable($tableName)->addIndex(
+          $setup->getTable('mageplaza_helloworld_post'),
           $setup->getIdxName(
-            $installer->getTable('mageplaza_helloworld_post'),
+            $setup->getTable('mageplaza_helloworld_post'),
             ['name','url_key','post_content','tags','featured_image'],
             Db::INDEX_TYPE_FULLTEXT
           ),
           ['name','url_key','post_content','tags','featured_image'],
           Db::INDEX_TYPE_FULLTEXT
         );
-        
-        $setup->getConnection()->createTable($table);
       }
 
 

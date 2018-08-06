@@ -1,0 +1,61 @@
+
+<?php $post = $block->getPost(); ?>
+
+<h1>Edit '<?= $post->getName(); ?>'</h1>
+<hr>
+<div class="six columns">
+    <form method="POST" action="/helloworld/post/update/id/<?= $post->getId(); ?>">
+        <div class="row">
+            <div class="three columns u-text-right">
+                <?= __('Name:'); ?>
+            </div>
+            <div class="nine columns">
+                <input type="text" name="name" id="name" value="<?= $post->getName(); ?>">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="three columns u-text-right">
+                <?= __('Content:'); ?>
+            </div>
+            <div class="nine columns">
+                <textarea name="post_content" id="post_content" rows="50"><?= $post->getPostContent(); ?></textarea>
+            </div>
+        </div>
+                
+        <div class="row">
+            <div class="three columns u-text-right">
+                <?= __('URL Key:'); ?>
+            </div>
+            <div class="nine columns">
+                <input type="text" name="url_key" id="url_key" value="<?= $post->getUrlKey(); ?>">
+            </div>
+        </div>
+                        
+        <div class="row">
+            <div class="three columns u-text-right">
+                <?= __('Tags:'); ?>
+            </div>
+            <div class="nine columns">
+                <input type="text" name="tags" id="tags" value="<?= $post->getTags(); ?>">
+            </div>
+        </div>
+                                
+        <div class="row">
+            <div class="three columns u-text-right">
+                <?= __('Status:'); ?>
+            </div>
+            <div class="three columns">
+                <select name="status" id="status">
+                    <option <?php if($post->getStatus() == 0) echo 'selected'; ?> value="0" selected>Inactive</option>
+                    <option <?php if($post->getStatus() == 1) echo 'selected'; ?> value="1">Active</option>
+                </select>
+            </div>
+        </div>
+                        
+        <div class="row u-text-right">
+            <a href="/helloworld/post/index" class="button">cancel</a>
+            <button class="button-primary">Update</button>
+        </div>
+    </form>
+</div>

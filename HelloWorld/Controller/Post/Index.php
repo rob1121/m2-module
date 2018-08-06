@@ -1,5 +1,5 @@
 <?php
-namespace Mageplaza\HelloWorld\Controller\Index;
+namespace Mageplaza\HelloWorld\Controller\Post;
 
 class Index extends \Magento\Framework\App\Action\Action
 {
@@ -23,16 +23,6 @@ class Index extends \Magento\Framework\App\Action\Action
 
 	public function execute()
 	{
-
-		echo 'hello';
-		$post = $this->_postFactory->create();
-		$collection = $post->getCollection();
-		foreach($collection as $item){
-			echo "<pre>";
-			print_r($item->getData());
-			echo "</pre>";
-		}
-		exit();
-		$this->_redirect('*/*/test');
+		return $this->_pageFactory->create();
 	}
 }

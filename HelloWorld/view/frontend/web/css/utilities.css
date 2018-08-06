@@ -1,0 +1,10 @@
+.u-text-right {
+    text-align: right !important; 
+}
+
+
+a.button.btn-delete {
+    background-color: #881600 !important;
+    color: #fff !important;
+    margin-left: 5px !important;
+}
