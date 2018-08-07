@@ -11,7 +11,7 @@ class InstallSchema implements InstallSchemaInterface
 {
   public function install(SchemaSetupInterface $setup, ModuleContextInterface $context) 
   {
-      $tableName = 'mageplaza_hellworld_post';
+      $tableName = 'mageplaza_helloworld_post';
       $setup->startSetup();
 
       if(!$setup->getConnection()->isTableExists($tableName)) {

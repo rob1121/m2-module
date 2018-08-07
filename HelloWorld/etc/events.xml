@@ -3,4 +3,8 @@
     <event name="mageplaza_helloworld_display_text">
         <observer name="mp_display_text" instance="Mageplaza\HelloWorld\Observer\ChangeDisplayText" />
     </event>
+    
+    <event name="mageplaza_helloworld_delete_notification">
+        <observer name="mp_delete_notification" instance="Mageplaza\HelloWorld\Observer\DeleteNotification" />
+    </event>
 </config>

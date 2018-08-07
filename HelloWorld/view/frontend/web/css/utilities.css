@@ -1,10 +1,33 @@
 .u-text-right {
     text-align: right !important; 
 }
-
-
 a.button.btn-delete {
     background-color: #881600 !important;
     color: #fff !important;
     margin-left: 5px !important;
+}
+
+#posts-form a.button {
+    margin-right: 10px !important;
+    background-image: none;
+    background: #eeeeee;
+    border: 1px solid #cccccc;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 7px 15px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+
+
+#posts-form button {
+    background: #006BB4 !important;
+    color: #fff !important;
 }

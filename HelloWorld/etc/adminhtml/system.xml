@@ -21,5 +21,19 @@
                 </field>
             </group>
         </section>
+
+        <section id="mageplaza_helloworld_section" translate="label" type="text" sortOrder="301" showInDefault="1" showInWebsite="1" showInStore="0">
+            <label>Sales</label>
+            <tab>sales</tab>
+            <resource>Magento_Sales::config_sales</resource>
+            <group id="custom_group" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" >
+                <label>Custom group</label>
+                <field id="custom_file_upload" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="6" showInDefault="1" showInWebsite="1" >
+                    <label>Upload custom file</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\File</backend_model>
+                    <upload_dir config="system" scope_info="1">test</upload_dir>
+                </field>
+            </group>
+        </section>
     </system>
 </config>

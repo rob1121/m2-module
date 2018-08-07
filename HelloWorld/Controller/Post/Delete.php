@@ -23,10 +23,18 @@ class Delete extends Action
     {
         $request = $this->getRequest()->getParams();
         $post = $this->_postFactory->create()->load($request['id']);
-        $post->delete();
+        // $post->delete();
 
-        echo "<script>alert('Post successfully deleted!.');</script>";
+        // echo "<script>alert('Post successfully deleted!.');</script>";
         
-        $this->_redirect('*/*/index');
+
+        
+		$post = new \Magento\Framework\DataObject(['post' => $post]);
+		$this->_eventManager->dispatch('mageplaza_helloworld_delete_notification', ['mp_post' => $post]);
+        echo $post->getPost()->getName() . " successfully deleted.";
+        echo $post->getPost()->getStatus();
+        
+        
+        // $this->_redirect('*/*/index');
     }
 }

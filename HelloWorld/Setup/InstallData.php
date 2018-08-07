@@ -1,51 +1,45 @@
 <?php
-
 namespace Mageplaza\HelloWorld\Setup;
 
-use Magento\Eav\Setup\EavSetup;
-use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Eav\Model\Config;
-use Magento\Customer\Model\Customer;
+use Magento\Eav\Setup\EavSetupFactory;
 
 class InstallData implements InstallDataInterface
 {
+
 	private $eavSetupFactory;
 
-	public function __construct(EavSetupFactory $eavSetupFactory, Config $eavConfig)
+	public function __construct(EavSetupFactory $eavSetupFactory)
 	{
 		$this->eavSetupFactory = $eavSetupFactory;
-		$this->eavConfig       = $eavConfig;
 	}
 
-	public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
+	public function install(
+		ModuleDataSetupInterface $setup,
+		ModuleContextInterface $context
+	)
 	{
 		$eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+
 		$eavSetup->addAttribute(
-			\Magento\Customer\Model\Customer::ENTITY,
-			'sample_attribute',
+			\Magento\Catalog\Model\Category::ENTITY,
+			'mp_new_attribute',
 			[
 				'type'         => 'varchar',
-				'label'        => 'Sample Attribute',
+				'label'        => 'Mageplaza Attribute',
 				'input'        => 'text',
-				'required'     => false,
+				'sort_order'   => 100,
+				'source'       => '',
+				'global'       => 1,
 				'visible'      => true,
-				'user_defined' => true,
-				'position'     => 999,
-				'system'       => 0,
+				'required'     => false,
+				'user_defined' => false,
+				'default'      => null,
+				'group'        => '',
+				'backend'      => ''
 			]
 		);
-		$sampleAttribute = $this->eavConfig->getAttribute(Customer::ENTITY, 'sample_attribute');
-
-		// more used_in_forms ['adminhtml_checkout','adminhtml_customer','adminhtml_customer_address','customer_account_edit','customer_address_edit','customer_register_address']
-		$sampleAttribute->setData(
-			'used_in_forms',
-			['adminhtml_customer']
-
-		);
-		$sampleAttribute->save();
 	}
 }
-
