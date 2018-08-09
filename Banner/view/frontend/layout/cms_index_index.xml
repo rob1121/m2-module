@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<page xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' layout='1column' xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'>
+
+    <head>
+        <css src="Mageplaza_HelloWorld::css/jquery.bxslider.css"/>
+        <link src="Mageplaza_HelloWorld::js/jquery.js"/>
+        <link src="Mageplaza_HelloWorld::js/jquery.bxslider.js"/>
+    </head>
+    <body>
+        <referenceContainer name="columns.top">
+            <block class="Mageplaza\Banner\Block\Banner" name="banner_slide" template="Mageplaza_Banner::banner.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

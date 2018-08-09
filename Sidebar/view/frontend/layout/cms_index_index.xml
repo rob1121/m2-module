@@ -1,0 +1,9 @@
+<?xml version='1.0'?>
+<page xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' layout='1column' xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'>
+    <referenceContainer name="sidebar.main">
+        <block class="Mageplaza\Sidebar\Block\CategorisCollection" name="categoriecollection" template="Mageplaza_Sidebar::storecategories.phtml"/>
+    </referenceContainer>
+    
+    <referenceBlock name="catalog.compare.sidebar" remove="true" />
+    <referenceBlock name="wishlist_sidebar" remove="true" />
+</page>
