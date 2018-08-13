@@ -1,0 +1,41 @@
+@m-max : 768px;
+
+
+.breakpoint-l(@rules) {
+    @media screen and (min-width: @m-max) { @rules(); }
+}
+
+
+.breakpoint-m(@rules) {
+    @media screen and (max-width: @m-max) { @rules(); }
+}
+
+
+.contact-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    .breakpoint-m({    
+        .map {
+            display: flex;
+            justify-content: center;
+            padding-top: 32px;
+        }
+    });
+
+    
+    .breakpoint-l({
+        flex-direction: row;
+    });
+
+    .actions-toolbar {
+        div.primary {
+            float: right;
+
+            button.action.submit.primary {
+                margin-right: 0;
+            }
+        }
+    }
+}

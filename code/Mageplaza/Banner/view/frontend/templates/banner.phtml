@@ -1,0 +1,20 @@
+
+<ul class="bxslider">
+     <li><img style="width: 100%" src="<?=$block->getViewFileUrl('Mageplaza_Banner::images/churva-01.jpg'); ?>"/></li>
+     <li hidden><img style="width: 100%" src="<?=$block->getViewFileUrl('Mageplaza_Banner::images/churva-01.jpg'); ?>"/></li>
+     <li hidden><img style="width: 100%" src="<?=$block->getViewFileUrl('Mageplaza_Banner::images/churva-01.jpg'); ?>"/></li>
+ </ul>
+
+<script type="application/javascript">
+    requirejs(['jquery', 'bxslider'], function(jQuery){
+        jQuery('.bxslider li').show();
+        jQuery('document').ready(function() {
+            jQuery('.bxslider').bxSlider({
+                mode: 'horizontal',
+                captions: true,
+                auto: true,
+            });
+        });
+    });
+</script>
+

@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+    <add id="Nineteen02_Urban::employees" resource="Nineteen02_Urban::employees" title="Urban employees" action="nineteen02_urban_employees/index/index" module="Nineteen02_Urban" sortOrder="10"/><add id="Nineteen02_Urban::employees_list" resource="Nineteen02_Urban::employees" title="Employee Objects" action="nineteen02_urban_employees/index/index" module="Nineteen02_Urban" sortOrder="10" parent="Nineteen02_Urban::employees" dependsOnModule="Nineteen02_Urban"/></menu>
+</config>

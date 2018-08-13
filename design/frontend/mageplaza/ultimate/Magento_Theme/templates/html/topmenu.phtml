@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+?>
+<?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+<?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+
+<nav class="navigation" data-action="navigation">
+    <ul data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}' 
+        style="display: flex; align-items: center;justify-content: space-between">
+        <div>
+            <?= /* @escapeNotVerified */ $_menu ?>
+            <li class="level0 last
+            <?= $this->getRequest()->getRouteName() == 'contact' ? 'active':''; ?>
+            ">
+                <a href="<?= $this->getUrl('contact'); ?>" class="level-top">Contact Us</a>
+            </li>
+        </div>
+        <li class="level0 last">
+            <?= /* @escapeNotVerified */ $block->getChildHtml() ?>
+        </li>
+    </ul>
+</nav>

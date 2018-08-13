@@ -1,0 +1,29 @@
+.breakpoint-m(@rules) {
+    @media screen and (max-width: @m-max) { @rules(); }
+}
+
+.page-bottom {
+    background: #fafafa;
+    margin: 0 !important;
+    max-width: 100% !important;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+
+    .content{
+        padding: 10px 0;
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        
+        .breakpoint-m({
+            justify-content: center;
+        });
+
+        img {
+            padding: 5px;
+        }
+    }
+}

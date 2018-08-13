@@ -1,0 +1,41 @@
+@import 'modules/_nav';
+@import 'modules/_minicart';
+
+.minicart-wrapper .action.showcart {
+    &,
+    &.active {
+        color: @newPrimary;
+        white-space: nowrap;
+        display: flex;
+        padding-bottom: 3px;
+        align-items: center;
+        
+        .counter.qty,
+        > span {
+            margin-left: 5px;
+        }
+    }
+
+    &.active,
+    &:hover {
+        color: lighten(@newPrimary, 10%);
+    }
+}
+
+.footer.content .links  {
+    a:hover {
+        color: darken(@white, 10%);
+    }
+
+    a, a:visited {
+        color: @white;
+    }
+}
+
+.page-header .panel.wrapper {
+    background: @newPrimary;
+}
+
+.modes-mode:before {
+    color: @newPrimary;
+}

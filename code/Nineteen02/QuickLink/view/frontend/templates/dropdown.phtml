@@ -1,0 +1,29 @@
+<?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $customerSession = $objectManager->get('Magento\Customer\Model\Session');
+?>
+
+<?php if(! $customerSession->isLoggedIn()): ?>
+    <li>
+        <div class="customer-menu">
+            <span class="action toggle"  data-mage-init='{"dropdown":{}}' data-toggle="dropdown" aria-haspopup="true">
+                <span class="title"><?= __("Login"); ?></span>
+            </span>
+            <ul class="dropdown">
+                    <form class="mini-login" action="<?= $this->getUrl('customer/account/loginPost') ?>" method="post">
+                        <?php echo $this->getBlockHtml('formkey'); ?>
+                        <div class="block-content">
+                            <label for="mini-login"><?= __('Email:') ?></label>
+                            <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="login[username]" class="input-text" />
+                            
+                            <label for="mini-password"><?= __('Password:') ?></label>
+                            <input type="password" name="login[password]" class="input-text" />
+                            <div class="actions">
+                                <button type="submit" class="button"><span><span><?= __('Login') ?></span></span></button>
+                            </div>
+                        </div>
+                    </form>
+            </ul>
+        </div>
+    </li>
+<?php endif; ?>
